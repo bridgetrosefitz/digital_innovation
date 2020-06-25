@@ -5,6 +5,11 @@ class Indicator < ApplicationRecord
     belongs_to :category
 
      def name_with_unit
-        self.name+" ("+self.unit+")"
+        "#{self.name} (#{self.unit})"
      end
+
+      def unit_billions
+        "(#{self.unit} billions)"
+     end
+
 end

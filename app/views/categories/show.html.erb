@@ -2,9 +2,12 @@
 
 <p>
 <% @category.indicators.each do |indicator| %>
-<h2> <%= indicator.name %><br>
-<%= indicator.unit_billions %></h2><br>
-<% indicator.datapoints.each do |datapoint| %>
-<li><%= "#{datapoint.country.name} - #{datapoint.value_in_billions}" %></li>
-<% end %> 
+    <% if indicator.datapoints.count > 0 %>
+        <h2> <%= indicator.name %><br>
+        <%= indicator.unit_billions %></h2><br>
+
+        <% indicator.datapoints.each do |datapoint| %>
+        <li><%= "#{datapoint.country.name} - #{datapoint.value_in_billions}" %></li>
+        <% end %> 
+    <% end %>
 <% end %>

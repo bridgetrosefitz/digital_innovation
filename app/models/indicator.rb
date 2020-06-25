@@ -9,7 +9,7 @@ class Indicator < ApplicationRecord
      end
 
       def unit_billions
-        "(#{self.unit} billions)"
+        "(#{self.unit}, billions)"
      end
 
 end

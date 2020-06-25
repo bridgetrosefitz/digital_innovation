@@ -1,0 +1,9 @@
+<h1>Show page for <%= @category.name %></h1>
+
+<p>
+<% @category.indicators.each do |indicator| %>
+<%= indicator.name_with_unit %><br>
+<% indicator.datapoints.each do |datapoint| %>
+<li><%= "#{datapoint.country.name} - #{datapoint.value}" %></li>
+<% end %> 
+<% end %>

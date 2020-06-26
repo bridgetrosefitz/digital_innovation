@@ -8,8 +8,8 @@ class Indicator < ApplicationRecord
         "#{self.name} (#{self.unit})"
      end
 
-      def unit_billions
-        "(#{self.unit}, billions)"
+      def unit_to_scale
+        "(#{self.unit}, #{self.scale})"
      end
 
 end

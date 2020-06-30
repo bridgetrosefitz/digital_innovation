@@ -5,4 +5,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
 
+  resources :users, only: [:index, :show, :create]
+
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  post "/logout", to: "sessions#destroy"
+  get "/signup", to: "users#new"
+
 end

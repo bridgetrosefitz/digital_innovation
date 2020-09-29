@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+    layout 'static'
     skip_before_action :require_login, only: [:new, :create]
 
     #Look up the user id DONE
@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     #Redirect to the page you want them to hit when they successfully log in
 
     def new
+        redirect_to :root if current_user
     end
 
     def create

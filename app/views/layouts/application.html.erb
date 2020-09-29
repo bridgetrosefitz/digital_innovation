@@ -2,24 +2,42 @@
 <html>
   <head>
     <title>Digital Innovation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Tech innovation by country, for developers" name="description" />
+    <meta content="Bridget Fitzgerald" name="author" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
   </head>
 
   <body>
-  <div style="float:right;">
-  <% if current_user %>
-  <%= "Logged in as #{current_user.full_name}" %>
-  <%= button_to "Log out", logout_path %>
-  <% else %>
-  <%=  link_to "Sign up", signup_path %>
-  <%= link_to "Log in", login_path %>
-  <% end %>
-  </div>
-    <%= yield %>
+    <div class="wrapper">
+      <%= render "partials/sidebar" %>
+        <div class="wrapper">
+          <div class="content-page">
+            <div class="content">
+              <%= render "partials/topbar" %>
+              <div class="container-fluid">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
+
+  <%#<div style="float:right;"> %>
+  <%# if current_user %>
+  <%#= "Logged in as #{current_user.full_name}" %>
+  <%#= button_to "Log out", logout_path %>
+  <%# else %>
+  <%#=  link_to "Sign up", signup_path %>
+  <%#= link_to "Log in", login_path %>
+  <%# end %>
+  <%#</div>%>

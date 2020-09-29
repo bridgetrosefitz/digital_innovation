@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-
+    layout 'static', only: [:new]
     skip_before_action :require_login, only: [:new, :create]
     def new
+        redirect_to :root if current_user
         @user = User.new
     end
 

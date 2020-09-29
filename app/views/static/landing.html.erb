@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg py-lg-3 navbar-dark">
+  <div class="container">
+    <ul class="navbar-nav ml-auto align-items-center">
+      <li class="nav-item mr-0">
+        <%= link_to "Create account", signup_path, class: "btn btn-sm btn-light btn-rounded d-lg-inline-flex" %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<section class="hero-section">
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-5">
+      <div class="mt-md-4">
+        <h2 class="text-white font-weight-normal mb-4 mt-3 hero-title">
+          Tech innovation by country, for&nbsp;developers
+        </h2>
+        <p class="mb-4 font-16 text-white-50">Be at the cutting edge of innovation.</p>
+        <%= link_to "Explore", Category.first, class: "btn btn-success" %>
+      </div>
+    </div>
+    <div class="col-md-5 offset-md-2">
+      <div class="text-md-right mt-3 mt-md-0">
+        <img src="/images/startup.svg" alt="" class="img-fluid" />
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+          <h3>How this  <span class="text-primary">started</span></h3>
+          <p class="text-muted mt-2">
+            This research was originally compiled for the Institut Montaigne 
+            <br>as part of the Masters of Public Affairs Program at Sciences Po, Paris. 
+          </p>
+          <a type="button" href="https://docs.google.com/document/d/1E_qm-jiGoCbdU4EYYeCQxvHpoA4gZySPD-bhaInuibc/edit?usp=sharing" target="_blank" class="btn btn-success btn-sm mt-2"><i class="mdi mdi-download mr-1"></i> Download the report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="bg-dark">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="mb-4 mt-2">
+        <p class="text-white-50 mt-4 text-center mb-0"><span id="copyright-year"></span> © Bridget Fitzgerald. Built with ♥ in Paris</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  var d = new Date();
+  var n = d.getFullYear();
+  document.getElementById("copyright-year").innerHTML = n;
+</script>

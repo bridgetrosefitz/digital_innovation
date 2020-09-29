@@ -1,0 +1,66 @@
+<%= link_to "Back to #{@indicator.category.name}", category_path(@indicator.category) %>
+
+<h1><%=@indicator.name%></h1>
+
+<p>
+
+<% @indicator.name %>
+    <div id="indicator-<%= @indicator.id %>" style="width:100%; height:400px;"></div>
+
+    <h2>Comments about this indicator:</h2>
+    <br>
+    <% @comments.each do |comment| %>
+    <li>
+    <%= "#{comment.content} - #{comment.user.alias}"  %> <%= button_to "Delete", comment_path(comment), method: :delete if comment.user == current_user%>
+    </li>
+    <% end %>
+    
+    <br>
+    <h3>Leave a comment:</h3>
+    <%= form_for @comment do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :indicator_id, value: @indicator.id %>
+    <%= f.label :content, "Your thoughts:" %><br>
+    <%= f.text_area :content %><br>
+
+    <%= f.submit "Comment" %>
+    <% end %>
+
+    <script> 
+        document.addEventListener('turbolinks:load', function () {
+            Highcharts.setOptions({
+                    lang: {
+                        numericSymbols: ['K', 'M', 'B']
+                    }
+                });
+                var myChart = Highcharts.chart('indicator-<%= @indicator.id %>', {
+                    plotOptions: {
+                        bar: {
+                            colorByPoint: true,
+                            colors: ['#b3c6ff']
+                        }
+                    },
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: '<%= @indicator.name  %>'
+                    },
+                    xAxis: {
+                        // categories: <%= raw @indicator.datapoints.map{ |d| d.year} %>
+                        categories: <%= raw @indicator.datapoints.map{ |d| d.country.name} %>
+                    },
+                    yAxis: {
+                        // type: 'logarithmic',
+                        title: {
+                            text: 'USD'
+                        }
+                    },
+                    // series: <%= raw @indicator.datapoints.map { |d| {name: d.country.name, data: [d.value]} }.to_json%>,
+                    series: <%= raw [{ data: @indicator.datapoints.map(&:value) }].to_json %>,
+                    legend: {
+                        enabled: false
+                    }
+                });
+            });
+    </script>

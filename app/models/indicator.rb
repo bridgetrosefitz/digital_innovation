@@ -2,6 +2,7 @@ class Indicator < ApplicationRecord
 
     has_many :datapoints
     has_many :countries, through: :datapoints
+    has_many :comments
     belongs_to :category
 
      def name_with_unit

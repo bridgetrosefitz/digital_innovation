@@ -1,21 +1,23 @@
 
 <h1><%= @category.name %></h1>
+<%= link_to("Back to all categories", categories_path)  %>
 
 <p>
 <% @category.indicators.each do |indicator| %>
-    <div id="indicator-<% indicator.id %>" style="width:100%; height:400px;"></div>
+<h2><%= indicator.name %></h2>
+    <div id="indicator-<%= indicator.id %>" style="width:100%; height:400px;"></div>
     <script> 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('turbolinks:load', function () {
             Highcharts.setOptions({
     lang: {
         numericSymbols: ['K', 'M', 'B']
     }
 });
-                var myChart = Highcharts.chart('indicator-<% indicator.id %>', {
+                var myChart = Highcharts.chart('indicator-<%= indicator.id %>', {
                     plotOptions: {
                         bar: {
                             colorByPoint: true,
-                            colors: ['red']
+                            colors: ['#b3c6ff']
                         }
                     },
                     chart: {
@@ -42,15 +44,9 @@
                 });
             });
     </script>
-
-
-    <% if indicator.datapoints.count > 0 %>
-        <h2> <%= indicator.name %><br>
-        <%= indicator.unit_to_scale %></h2><br>
-        <%= indicator.datapoints.first.year %><br>
-        <% indicator.datapoints.each do |datapoint| %>
-        <li><%= "#{datapoint.country.name} - #{datapoint.value_to_scale.round(2)}" %></li>
-        <% end %> 
+    <%= link_to("See details and comments for this indicator", indicator_path(indicator)) %>
+    <br>
+    <br>
+    <br>
     <% end %>
-<% end %>
 

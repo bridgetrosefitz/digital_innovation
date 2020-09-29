@@ -131,3 +131,5 @@
 
 User.create(first_name: "Bridget", last_name: "Fitzgerald", email: "bridgetrosefitz@gmail.com", password: "firstuser")
 User.create(first_name: "Kevin", last_name: "McAlear", email: "kevin.mcalear@gmail.com", password: "seconduser")
+
+Comment.create(user_id: 1, indicator_id: 1, content: "Test. I think this is interesting.")

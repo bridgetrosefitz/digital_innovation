@@ -1,4 +1,10 @@
 Create an account.
+<br>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+    <div style="color:red;"><%= error %></div>
+    <% end %>
+<% end %>
 
 <%= form_for @user do |f| %>
     <%= f.label :first_name %>
@@ -16,4 +22,4 @@ Create an account.
 
 <br>
 
-<%= link_to "Log in", login_path %>
+<%= link_to "Already have an account? Log in", login_path %>

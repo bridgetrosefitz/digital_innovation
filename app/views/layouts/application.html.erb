@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DigitalInnovation</title>
+    <title>Digital Innovation</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,15 @@
   </head>
 
   <body>
+  <div style="float:right;">
+  <% if current_user %>
+  <%= "Logged in as #{current_user.full_name}" %>
+  <%= button_to "Log out", logout_path %>
+  <% else %>
+  <%=  link_to "Sign up", signup_path %>
+  <%= link_to "Log in", login_path %>
+  <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>

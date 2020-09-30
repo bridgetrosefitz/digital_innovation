@@ -1,310 +1,317 @@
-                        <h4 class="page-title">&nbsp;</h4>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <h3 class="mt-0 mb-2">
-                                                                <%= @category.name %>
-                                                            </h3>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="float-right">
-                                                                <div class="btn-group">
-                                                                    <button type="button" class="btn btn-dark">Absolute</button>
-                                                                    <button type="button" class="btn btn-light">GDP</button>
-                                                                    <button type="button" class="btn btn-light">Population</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <% @category.indicators.each do |indicator| %>
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <h5 class="text-muted font-weight-normal mt-2 mb-0" title="Revenue"><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= indicator.datapoints.first.year %></span></h5>
-                                                                        <div class="apex-charts single-year-chart" data-datapoints='<%= raw indicator.datapoints.map(&:value).to_json %>' data-countries='<%= raw indicator.datapoints.map{ |d| d.country.name}.to_json %>' data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
-                                                                    </div>    
-                                                                    <div class="col-sm-6">
-                                                                        <h5 class="text-muted font-weight-normal mt-2 mb-0" title="Revenue">VC deal volume <span class="badge badge-primary-lighten badge-pill">2015-19</span></h5>
-                                                                        <div class="apex-charts historical-chart" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <hr>
-                                                    <% end %>
-                                                </div>
+<h4 class="page-title">&nbsp;</h4>
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="mt-0 mb-2">
+                                        <%= @category.name %>
+                                    </h3>
+                                </div>
+                                <% unless @category.indicators.count == 0 %>
+                                    <div class="col-6">
+                                        <div class="float-right">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-dark">Absolute</button>
+                                                <button type="button" class="btn btn-light">GDP</button>
+                                                <button type="button" class="btn btn-light">Population</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="grid-structure">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <h4 class="mt-0 mb-3">Comments (258)</h4>
-                                                
-                                                        <textarea class="form-control form-control-light mb-2" placeholder="Write message" id="example-textarea"
-                                                            rows="3"></textarea>
-                                                        <div class="text-right">
-                                                            <div class="btn-group mb-2">
-                                                                <button type="button" class="btn btn-link btn-sm text-muted font-18"><i
-                                                                        class="dripicons-paperclip"></i></button>
-                                                            </div>
-                                                            <div class="btn-group mb-2 ml-2">
-                                                                <button type="button" class="btn btn-primary btn-sm">Submit</button>
-                                                            </div>
-                                                        </div>
-                                                
-                                                        <div class="media mt-2">
-                                                            <img class="mr-3 avatar-sm rounded-circle" src="/images/users/avatar-3.jpg"
-                                                                alt="Generic placeholder image">
-                                                            <div class="media-body">
-                                                                <h5 class="mt-0">Jeremy Tomlinson</h5>
-                                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-                                                                odio, vestibulum in
-                                                                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-                                                                congue felis
-                                                                in faucibus.
-                                                
-                                                                <div class="media mt-3">
-                                                                    <a class="pr-3" href="#">
-                                                                        <img src="/images/users/avatar-4.jpg" class="avatar-sm rounded-circle"
-                                                                            alt="Generic placeholder image">
-                                                                    </a>
-                                                                    <div class="media-body">
-                                                                        <h5 class="mt-0">Kathleen Thomas</h5>
-                                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                                                                        purus odio, vestibulum in
-                                                                        vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-                                                                        lacinia congue
-                                                                        felis in faucibus.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                
-                                                        <div class="text-center mt-2">
-                                                            <a href="javascript:void(0);" class="text-danger">Load more </a>
-                                                        </div>
-                                                    </div> <!-- end card-body-->
+                                <% end %>
+                            </div>
+                            <% if @category.indicators.count == 0 %>
+                                <div class="row">
+                                    <div class="col-3"></div>
+                                    <div class="col-md-5">
+                                        <div class="card cta-box bg-success text-white">
+                                            <div class="card-body">
+                                                <div class="media align-items-center">
+                                                    <div class="media-body">
+                                                        <h2 class="mt-0"><i class="mdi mdi-bullhorn-outline"></i>&nbsp;</h2>
+                                                        <h3 class="m-0 font-weight-normal cta-box-title">Suggest an <b>indicator</b> for <%= @category.name %> <i class="mdi mdi-arrow-right"></i></h3>
+                                                    </div>
+                                                    <img class="ml-3" src="/images/email-campaign.svg" width="120" alt="Generic placeholder image">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>     
-                        <!-- end page title --> 
-        <!-- third party end -->
-        <script src="https://apexcharts.com/samples/assets/stock-prices.js"></script>
-        <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
+                            <% end %>
+                            <% @category.indicators.each do |indicator| %>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" title="Revenue"><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= indicator.datapoints.first.year %></span></h5>
+                                                <div class="apex-charts single-year-chart" data-datapoints='<%= raw indicator.datapoints.map(&:value).to_json %>' data-countries='<%= raw indicator.datapoints.map{ |d| d.country.name}.to_json %>' data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
+                                            </div>    
+                                            <div class="col-sm-6">
+                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" title="Revenue">VC deal volume <span class="badge badge-primary-lighten badge-pill">2015-19</span></h5>
+                                                <div class="apex-charts historical-chart" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-structure">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
 
-        <div id="basic-bar-vc-deal-volume" class="apex-charts" data-colors="#44badc"></div>
+                                <h4 class="mt-0 mb-3">Comments <%= "(#{@comments.count})" %></h4>
+                                <%= form_for @comment do |f| %>
+                                    <%= f.hidden_field :user_id, value: current_user.id %>
+                                    <%= f.hidden_field :category_id, value: @category.id %>
+                                    <%= f.text_area :content, class: "form-control form-control-light mb-2", placeholder: "Write message", rows: "3" %>
+                                    <div class="text-right">
+                                    <div class="btn-group mb-2">
+                                        <!-- <button type="button" class="btn btn-link btn-sm text-muted font-18">
+                                            <i class="dripicons-paperclip"></i>
+                                        </button> -->
+                                        </div>
+                                        <div class="btn-group mb-2 ml-2">
+                                            <%= f.submit "Comment", class: "btn btn-primary btn-sm" %>
+                                        </div>
+                                    </div>
+                                <% end %>
 
-        <script>
-            const barChartVcDealVolume = (chartContainer, datapoints, countries) => {
-                var colors = ["#39afd1"];
-                var dataColors = $(chartContainer).data('colors');
-                if (dataColors) {
-                    colors = dataColors.split(",");
+                                <% @comments.each do |comment| %>
+                                    <div class="media mt-2">
+                                    <% if false %>
+                                        <img class="mr-3 avatar-sm rounded-circle" src="/images/users/avatar-3.jpg"
+                                            alt="Generic placeholder image">
+                                    <% else %>
+                                        <div class="avatar-sm mr-3">
+                                            <span class="rounded-circle avatar-title bg-secondary-lighten text-secondary font-20 rounded-circle">
+                                                <%= comment.user.first_name[0] + comment.user.last_name[0] %>
+                                            </span>
+                                        </div>
+                                    <% end %>
+                                        <div class="media-body">
+                                            <h5 class="mt-0"><%= comment.user.alias %></h5>
+                                            <%= comment.content %>
+                                        </div>
+                                        <%= link_to raw("<i class=\"mdi mdi-trash-can-outline\"></i>"), comment_path(comment), class: "btn btn-light", method: :delete if comment.user == current_user%>
+                                    </div>
+                                    <hr>
+                                <% end %>
+                                
+                                <!-- <div class="text-center mt-2">
+                                    <a href="javascript:void(0);" class="text-danger">Load more </a>
+                                </div> -->
+                            </div> <!-- end card-body-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+<!-- end page title --> 
+<!-- third party end -->
+<script src="https://apexcharts.com/samples/assets/stock-prices.js"></script>
+<script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
+
+<div id="basic-bar-vc-deal-volume" class="apex-charts" data-colors="#44badc"></div>
+
+<script>
+    const barChartVcDealVolume = (chartContainer, datapoints, countries) => {
+        var colors = ["#39afd1"];
+        var dataColors = $(chartContainer).data('colors');
+        if (dataColors) {
+            colors = dataColors.split(",");
+        }
+        var options = {
+                                
+            chart: {
+                height: 300,
+                type: 'bar',
+                toolbar: {
+                    show: false
                 }
-                var options = {
-                                       
-                    chart: {
-                        height: 300,
-                        type: 'bar',
-                        toolbar: {
-                            show: false
-                        }
-                    },
-                    plotOptions: {
-                        bar: {
-                            horizontal: true,
-                            distributed: true
-                        }
-                    },
-                    dataLabels: {
-                        enabled: false
-                    },
-                    series: [{
-                        name: "USD",
-                        data: datapoints
-                    }],
-                    colors: colors,
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    distributed: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            series: [{
+                name: "USD",
+                data: datapoints
+            }],
+            colors: colors,
+            yaxis: {
+                axisBorder: {
+                    show: true
+                }
+            },
+            xaxis: {
+                axisBorder: {
+                    show: false
+                },
+                    axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false
+                },
+                categories: countries
+            },
+            states: {
+                hover: {
+                    filter: 'none'
+                }
+            },
+            grid: {
+                borderColor: '#f1f3fa',
                     yaxis: {
-                        axisBorder: {
-                            show: true
-                        }
-                    },
-                    xaxis: {
-                        axisBorder: {
-                            show: false
-                        },
-                         axisTicks: {
-                            show: false
-                        },
-                        labels: {
-                            show: false
-                        },
-                        categories: countries
-                    },
-                    states: {
-                        hover: {
-                            filter: 'none'
-                        }
-                    },
-                    grid: {
-                        borderColor: '#f1f3fa',
-                         yaxis: {
-                            lines: {
-                                show: false
-                            }
-                        },  
-                    },
-                    legend: {
-                        show: false,
-                        shape: "circle",
+                    lines: {
+                        show: false
                     }
-                }
-
-                var chart = new ApexCharts(
-                    chartContainer,
-                    options
-                );
-
-                chart.render();
+                },  
+            },
+            legend: {
+                show: false,
+                shape: "circle",
             }
+        }
 
-            const lineChartVcDealVolumeHistorical = (chartContainer) => {
-                var colors = ["#ffbc00"];
-                var dataColors = $(chartContainer).data('colors');
-                if (dataColors) {
-                    colors = dataColors.split(",");
-                }
-                var options = {
-                    chart: {
-                        height: 300,
-                        type: 'line',
-                        zoom: {
-                            enabled: false
-                        },
-                        toolbar: {
-                            show: false
-                        },
-                        animations: {
-                        enabled: true,
-                        easing: 'easeinout',
-                        speed: 800,
-                        animateGradually: {
-                            enabled: true,
-                            delay: 150
-                        },
-                        dynamicAnimation: {
-                            enabled: true,
-                            speed: 350
-                        }
-                    }
-                    },
-                    dataLabels: {
-                        enabled: false
-                    },
-                    colors: colors,
-                    stroke: {
-                        width: 2,
-                        curve: 'smooth'
-                        
-                    },
-                    series: [
-                    {
-                        name: "China",
-                        data: [0, 0, 0, 0],
-                    },
-                    {
-                        name: "France",
-                        data: [3, 1.3, 1.5, 3.8]   
-                    },
-                    {
-                        name: "Germany",
-                        data: [0.4, 0.7, 1.1, 2.0]
-                    },
-                    {
-                        name: "United Kingdom",
-                        data: [2, 1.1, 1.7, 2.6]
-                    },
-                    {
-                        name: "United States",
-                        data: [1, 0.9, 1.0, 1.6]
-                    }
-                    ],
-                    grid: {
-                        yaxis: {
-                            lines: {
-                                show: false
-                            }
-                        },
-                        xaxis: {
-                            lines: {
-                                show: false
-                            }
-                        },
-                        row: {
-                            colors: ['transparent', 'transparent'], // takes an array which will be repeated on columns
-                            opacity: 0.2
-                        },
-                        borderColor: '#f1f3fa',
-                    },
-                    labels: series.monthDataSeries1.dates,
-                    xaxis: {
-                        axisBorder: {
-                            show: false
-                        },
-                        categories: ['2015', '2016', '2017', '2018', '2019'],
-                    },
-                    // responsive: [{
-                    //     breakpoint: 600,
-                    //     options: {
-                    //         chart: {
-                    //             toolbar: {
-                    //                 show: false
-                    //             }
-                    //         },
-                    //     }
-                    // }],
-                    yaxis: {
-                        show: false,
-                        axisBorder: {
-                            show: false
-                        },
-                    },
-                    legend: {
-                        show: false,
-                        showForNullSeries: false,
-                    }
-                }
+        var chart = new ApexCharts(
+            chartContainer,
+            options
+        );
 
-                var chart = new ApexCharts(
-                    chartContainer,
-                    options
-                );
-                chart.render();
+        chart.render();
+    }
+
+    const lineChartVcDealVolumeHistorical = (chartContainer) => {
+        var colors = ["#ffbc00"];
+        var dataColors = $(chartContainer).data('colors');
+        if (dataColors) {
+            colors = dataColors.split(",");
+        }
+        var options = {
+            chart: {
+                height: 300,
+                type: 'line',
+                zoom: {
+                    enabled: false
+                },
+                toolbar: {
+                    show: false
+                },
+                animations: {
+                enabled: true,
+                easing: 'easeinout',
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 150
+                },
+                dynamicAnimation: {
+                    enabled: true,
+                    speed: 350
+                }
             }
-            document.addEventListener('turbolinks:load', () => {
-                document.querySelectorAll('.single-year-chart').forEach(chartElement => {
-                    const datapoints = JSON.parse(chartElement.dataset.datapoints)
-                    const countries = JSON.parse(chartElement.dataset.countries)
-                    barChartVcDealVolume(chartElement, datapoints, countries);
-                })
-                document.querySelectorAll('.historical-chart').forEach(chartElement => {
-                    // const datapoints = JSON.parse(chartElement.dataset.datapoints)
-                    // const countries = JSON.parse(chartElement.dataset.countries)
-                    lineChartVcDealVolumeHistorical(chartElement);
-                })
-            })
-        </script>
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: colors,
+            stroke: {
+                width: 2,
+                curve: 'smooth'
+                
+            },
+            series: [
+            {
+                name: "China",
+                data: [0, 0, 0, 0],
+            },
+            {
+                name: "France",
+                data: [3, 1.3, 1.5, 3.8]   
+            },
+            {
+                name: "Germany",
+                data: [0.4, 0.7, 1.1, 2.0]
+            },
+            {
+                name: "United Kingdom",
+                data: [2, 1.1, 1.7, 2.6]
+            },
+            {
+                name: "United States",
+                data: [1, 0.9, 1.0, 1.6]
+            }
+            ],
+            grid: {
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                },
+                xaxis: {
+                    lines: {
+                        show: false
+                    }
+                },
+                row: {
+                    colors: ['transparent', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.2
+                },
+                borderColor: '#f1f3fa',
+            },
+            labels: series.monthDataSeries1.dates,
+            xaxis: {
+                axisBorder: {
+                    show: false
+                },
+                categories: ['2015', '2016', '2017', '2018', '2019'],
+            },
+            yaxis: {
+                show: false,
+                axisBorder: {
+                    show: false
+                },
+            },
+            legend: {
+                show: false,
+                showForNullSeries: false,
+            }
+        }
+
+        var chart = new ApexCharts(
+            chartContainer,
+            options
+        );
+        chart.render();
+    }
+    document.addEventListener('turbolinks:load', () => {
+        document.querySelectorAll('.single-year-chart').forEach(chartElement => {
+            const datapoints = JSON.parse(chartElement.dataset.datapoints)
+            const countries = JSON.parse(chartElement.dataset.countries)
+            barChartVcDealVolume(chartElement, datapoints, countries);
+        })
+        document.querySelectorAll('.historical-chart').forEach(chartElement => {
+            // const datapoints = JSON.parse(chartElement.dataset.datapoints)
+            // const countries = JSON.parse(chartElement.dataset.countries)
+            lineChartVcDealVolumeHistorical(chartElement);
+        })
+    })
+</script>

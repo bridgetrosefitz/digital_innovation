@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_06_30_205105) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -29,14 +32,14 @@ ActiveRecord::Schema.define(version: 2020_06_30_205105) do
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.integer "population"
-    t.integer "GDP"
+    t.bigint "GDP"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "datapoints", force: :cascade do |t|
     t.string "year"
-    t.integer "value"
+    t.bigint "value"
     t.integer "indicator_id"
     t.integer "country_id"
     t.datetime "created_at", precision: 6, null: false

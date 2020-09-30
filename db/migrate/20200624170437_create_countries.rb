@@ -3,7 +3,7 @@ class CreateCountries < ActiveRecord::Migration[6.0]
     create_table :countries do |t|
       t.string :name
       t.integer :population
-      t.integer :GDP
+      t.integer :GDP, limit: 8
 
       t.timestamps
     end

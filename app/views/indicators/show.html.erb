@@ -10,9 +10,9 @@
     <h2>Comments about this indicator:</h2>
     <br>
     <% @comments.each do |comment| %>
-    <li>
-    <%= "#{comment.content} - #{comment.user.alias}"  %> <%= button_to "Delete", comment_path(comment), method: :delete if comment.user == current_user%>
-    </li>
+        <li>
+            <%= "#{comment.content} - #{comment.user.alias}"  %> <%= button_to "Delete", comment_path(comment), method: :delete if comment.user == current_user%>
+        </li>
     <% end %>
     
     <br>

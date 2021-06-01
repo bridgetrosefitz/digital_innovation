@@ -47,6 +47,7 @@
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-sm-6">
+                                                <!-- Create single year chart, in its dedicated section -->
                                                 <% year = indicator.datapoints.map(&:year).max %>
                                                 <h5 class="text-muted font-weight-normal mt-2 mb-0" ><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= year %></span></h5>
                                                 <% array_of_datapoints_single_year = [] %>
@@ -59,34 +60,60 @@
                                                 <div class="apex-charts single-year-chart" data-datapoints='<%= raw array_of_datapoints_single_year.to_json %>' data-countries='<%= raw array_of_countries.to_json %>' data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
                                             </div>    
                                             <div class="col-sm-6">
-                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" >VC deal volume <span class="badge badge-primary-lighten badge-pill">2015-19</span></h5>
-                                                <% france_data = [] %>
-                                                <% germany_data = [] %>
-                                                <% united_kingdom_data = [] %>
-                                                <% united_states_data = [] %>
-                                                <% china_data = [] %>
+                                                <!-- If multi-year data available, create historical chart, in its dedicated section -->
                                                 <% array_of_datapoints_historical_sorted = indicator.datapoints.sort_by {|datapoint| datapoint.year}  %>
-                                                <%  array_of_datapoints_historical_sorted.each do |datapoint|  %>
-                                                    <%  if datapoint.country.name == "Germany"%>
-                                                        <% germany_data << datapoint.value %>
-                                                    <% elsif datapoint.country.name == "France" %>
-                                                        <% france_data << datapoint.value %>
-                                                    <% elsif datapoint.country.name == "United Kingdom" %>
-                                                        <% united_kingdom_data << datapoint.value %>
-                                                    <% elsif datapoint.country.name == "United States" %>
-                                                        <% united_states_data << datapoint.value %>
-                                                    <% elsif datapoint.country.name == "China" %>
-                                                        <% china_data << datapoint.value %>
+                                                <% if array_of_datapoints_historical_sorted.length() > 5 %>
+                                                    <h5 class="text-muted font-weight-normal mt-2 mb-0" >VC deal volume <span class="badge badge-primary-lighten badge-pill">2015-19</span></h5>
+                                                    <% france_data = [] %>
+                                                    <% germany_data = [] %>
+                                                    <% united_kingdom_data = [] %>
+                                                    <% united_states_data = [] %>
+                                                    <% china_data = [] %>
+                                                    <%  array_of_datapoints_historical_sorted.each do |datapoint|  %>
+                                                        <%  if datapoint.country.name == "Germany"%>
+                                                            <% germany_data << datapoint.value %>
+                                                        <% elsif datapoint.country.name == "France" %>
+                                                            <% france_data << datapoint.value %>
+                                                        <% elsif datapoint.country.name == "United Kingdom" %>
+                                                            <% united_kingdom_data << datapoint.value %>
+                                                        <% elsif datapoint.country.name == "United States" %>
+                                                            <% united_states_data << datapoint.value %>
+                                                        <% elsif datapoint.country.name == "China" %>
+                                                            <% china_data << datapoint.value %>
+                                                        <% end %>
                                                     <% end %>
+                                                    <% series = [
+                                                        {name: "France", data: france_data},
+                                                        {name: "Germany", data: germany_data},
+                                                        {name: "United Kingdom", data: united_kingdom_data},
+                                                        {name: "United States", data: united_states_data },
+                                                        {name: "China", data: china_data}
+                                                    ] %>
+                                                    <div class="apex-charts historical-chart" data-series="<%= series.to_json  %>" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
+                                                <% else %>
+                                                        <div class="d-flex flex-row">
+                                                            <div class="p-2"></div>
+                                                            <div class="p-2"></div>
+                                                            <div class="p-2">
+                                                                <div class="d-flex flex-column">
+                                                                    <div class="p-2"></div>
+                                                                    <div class="p-2"></div>
+                                                                    <div class="p-2">
+                                                                        <div class="card cta-box bg-secondary text-white">
+                                                                            <div class="card-body">
+                                                                                <div class="media align-items-center">
+                                                                                        <p class="card-text">Reliable historical data not available for <br/><b><%= indicator.name %></b> </p>
+                                                                                    <%# <img class="ml-3" src="/images/email-campaign.svg" width="120" alt="Generic placeholder image"> %>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="p-2"></div>
+                                                            <div class="p-2"></div>
+                                                        </div>
                                                 <% end %>
-                                                <% series = [
-                                                    {name: "France", data: france_data},
-                                                    {name: "Germany", data: germany_data},
-                                                    {name: "United Kingdom", data: united_kingdom_data},
-                                                    {name: "United States", data: united_states_data },
-                                                    {name: "China", data: china_data}
-                                                ] %>
-                                                <div class="apex-charts historical-chart" data-series="<%= series.to_json  %>" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
                                             </div>
                                         </div>
                                     </div>

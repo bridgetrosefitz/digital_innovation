@@ -65,7 +65,7 @@
                                                 <% time_series_min = indicator.datapoints.map(&:year).min %>
                                                 <% array_of_datapoints_historical_sorted = indicator.datapoints.sort_by {|datapoint| datapoint.year}  %>
                                                 <% if array_of_datapoints_historical_sorted.length() > 5 %>
-                                                    <h5 class="text-muted font-weight-normal mt-2 mb-0" >VC deal volume <span class="badge badge-primary-lighten badge-pill"> <%= time_series_min + "-" + time_series_max.split("0",2)[1] %></span></h5>
+                                                    <h5 class="text-muted font-weight-normal mt-2 mb-0" > <%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"> <%= time_series_min + "-" + time_series_max.split("0",2)[1] %></span></h5>
                                                     <% france_data = [] %>
                                                     <% germany_data = [] %>
                                                     <% united_kingdom_data = [] %>
@@ -189,7 +189,7 @@
 <%#= javascript_pack_tag 'categoriesShowPage.js', 'data-turbolinks-track': 'reload' %>
 
 <script>
-    const barChartVcDealVolume = (chartContainer, datapoints, countries) => {
+    const barChartSingleYear = (chartContainer, datapoints, countries) => {
         var colors = ["#39afd1"];
         var dataColors = $(chartContainer).data('colors');
         if (dataColors) {
@@ -262,7 +262,7 @@
         chart.render();
     }
 
-    const lineChartVcDealVolumeHistorical = (chartContainer, seriesData, dates) => {
+    const lineChartHistorical = (chartContainer, seriesData, dates) => {
         var colors = ["#ffbc00"];
         var dataColors = $(chartContainer).data('colors');
         if (dataColors) {
@@ -348,12 +348,12 @@
         document.querySelectorAll('.single-year-chart').forEach(chartElement => {
             const datapoints = JSON.parse(chartElement.dataset.datapoints)
             const countries = JSON.parse(chartElement.dataset.countries)
-            barChartVcDealVolume(chartElement, datapoints, countries);
+            barChartSingleYear(chartElement, datapoints, countries);
         })
         document.querySelectorAll('.historical-chart').forEach(chartElement => {
             const series = JSON.parse(chartElement.dataset.series)
             const dates = JSON.parse(chartElement.dataset.dates)
-            lineChartVcDealVolumeHistorical(chartElement, series, dates);
+            lineChartHistorical(chartElement, series, dates);
         })
     })
 </script>

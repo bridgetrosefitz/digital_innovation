@@ -47,10 +47,11 @@
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" ><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= indicator.datapoints.first.year %></span></h5>
+                                                <% year = indicator.datapoints.map(&:year).max %>
+                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" ><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= year %></span></h5>
                                                 <% array_of_datapoints_single_year = [] %>
                                                 <% indicator.datapoints.each do |datapoint| %>
-                                                    <% if datapoint.year == "2019" %> 
+                                                    <% if datapoint.year == year %> 
                                                         <% array_of_datapoints_single_year << datapoint.value %> 
                                                     <%end%>
                                                 <% end %>

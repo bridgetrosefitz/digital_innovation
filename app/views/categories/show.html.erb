@@ -61,9 +61,11 @@
                                             </div>    
                                             <div class="col-sm-6">
                                                 <!-- If multi-year data available, create historical chart, in its dedicated section -->
+                                                <% time_series_max = indicator.datapoints.map(&:year).max %>
+                                                <% time_series_min = indicator.datapoints.map(&:year).min %>
                                                 <% array_of_datapoints_historical_sorted = indicator.datapoints.sort_by {|datapoint| datapoint.year}  %>
                                                 <% if array_of_datapoints_historical_sorted.length() > 5 %>
-                                                    <h5 class="text-muted font-weight-normal mt-2 mb-0" >VC deal volume <span class="badge badge-primary-lighten badge-pill">2015-19</span></h5>
+                                                    <h5 class="text-muted font-weight-normal mt-2 mb-0" >VC deal volume <span class="badge badge-primary-lighten badge-pill"> <%= time_series_min + "-" + time_series_max.split("0",2)[1] %></span></h5>
                                                     <% france_data = [] %>
                                                     <% germany_data = [] %>
                                                     <% united_kingdom_data = [] %>

@@ -99,11 +99,11 @@
 # Datapoint.create(indicator_id: 4, country_id: 4, value: 533313134000, year: "2017")
 # Datapoint.create(indicator_id: 4, country_id: 5, value: 484480411000, year: "2017")
 
-# Datapoint.create(indicator_id: 4, country_id: 1, value: 62912669800, year: "2018")
-# Datapoint.create(indicator_id: 4, country_id: 2, value: 129769709000, year: "2018")
-# Datapoint.create(indicator_id: 4, country_id: 3, value: 49727600000., year: "2018")
-# Datapoint.create(indicator_id: 4, country_id: 4, value: 551517745000, year: "2018")
-# Datapoint.create(indicator_id: 4, country_id: 5, value: 526062744000., year: "2018")
+Datapoint.create(indicator_id: 4, country_id: 1, value: 62912669800, year: "2018")
+Datapoint.create(indicator_id: 4, country_id: 2, value: 129769709000, year: "2018")
+Datapoint.create(indicator_id: 4, country_id: 3, value: 49727600000, year: "2018")
+Datapoint.create(indicator_id: 4, country_id: 4, value: 551517745000, year: "2018")
+Datapoint.create(indicator_id: 4, country_id: 5, value: 526062744000, year: "2018")
 
 # Datapoint.create(indicator_id: 5, country_id: 1, value: 80667, year: "2018")
 # Datapoint.create(indicator_id: 5, country_id: 2, value: 123815, year: "2018")

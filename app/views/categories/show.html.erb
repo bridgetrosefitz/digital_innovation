@@ -47,12 +47,45 @@
                                     <div class="col-12">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" title="Revenue"><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= indicator.datapoints.first.year %></span></h5>
-                                                <div class="apex-charts single-year-chart" data-datapoints='<%= raw indicator.datapoints.map(&:value).to_json %>' data-countries='<%= raw indicator.datapoints.map{ |d| d.country.name}.to_json %>' data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
+                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" ><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= indicator.datapoints.first.year %></span></h5>
+                                                <% array_of_datapoints_single_year = [] %>
+                                                <% indicator.datapoints.each do |datapoint| %>
+                                                    <% if datapoint.year == "2019" %> 
+                                                        <% array_of_datapoints_single_year << datapoint.value %> 
+                                                    <%end%>
+                                                <% end %>
+                                                <% array_of_countries = indicator.datapoints.map{ |d| d.country.name}.uniq %>
+                                                <div class="apex-charts single-year-chart" data-datapoints='<%= raw array_of_datapoints_single_year.to_json %>' data-countries='<%= raw array_of_countries.to_json %>' data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
                                             </div>    
                                             <div class="col-sm-6">
-                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" title="Revenue">VC deal volume <span class="badge badge-primary-lighten badge-pill">2015-19</span></h5>
-                                                <div class="apex-charts historical-chart" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
+                                                <h5 class="text-muted font-weight-normal mt-2 mb-0" >VC deal volume <span class="badge badge-primary-lighten badge-pill">2015-19</span></h5>
+                                                <% france_data = [] %>
+                                                <% germany_data = [] %>
+                                                <% united_kingdom_data = [] %>
+                                                <% united_states_data = [] %>
+                                                <% china_data = [] %>
+                                                <% array_of_datapoints_historical_sorted = indicator.datapoints.sort_by {|datapoint| datapoint.year}  %>
+                                                <%  array_of_datapoints_historical_sorted.each do |datapoint|  %>
+                                                    <%  if datapoint.country.name == "Germany"%>
+                                                        <% germany_data << datapoint.value %>
+                                                    <% elsif datapoint.country.name == "France" %>
+                                                        <% france_data << datapoint.value %>
+                                                    <% elsif datapoint.country.name == "United Kingdom" %>
+                                                        <% united_kingdom_data << datapoint.value %>
+                                                    <% elsif datapoint.country.name == "United States" %>
+                                                        <% united_states_data << datapoint.value %>
+                                                    <% elsif datapoint.country.name == "China" %>
+                                                        <% china_data << datapoint.value %>
+                                                    <% end %>
+                                                <% end %>
+                                                <% series = [
+                                                    {name: "France", data: france_data},
+                                                    {name: "Germany", data: germany_data},
+                                                    {name: "United Kingdom", data: united_kingdom_data},
+                                                    {name: "United States", data: united_states_data },
+                                                    {name: "China", data: china_data}
+                                                ] %>
+                                                <div class="apex-charts historical-chart" data-series="<%= series.to_json  %>" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +155,7 @@
 <!-- third party end -->
 <script src="https://apexcharts.com/samples/assets/stock-prices.js"></script>
 <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
-
+<%#= javascript_pack_tag 'categoriesShowPage.js', 'data-turbolinks-track': 'reload' %>
 <div id="basic-bar-vc-deal-volume" class="apex-charts" data-colors="#44badc"></div>
 
 <script>
@@ -199,7 +232,7 @@
         chart.render();
     }
 
-    const lineChartVcDealVolumeHistorical = (chartContainer) => {
+    const lineChartVcDealVolumeHistorical = (chartContainer, seriesData) => {
         var colors = ["#ffbc00"];
         var dataColors = $(chartContainer).data('colors');
         if (dataColors) {
@@ -238,28 +271,7 @@
                 curve: 'smooth'
                 
             },
-            series: [
-            {
-                name: "China",
-                data: [0, 0, 0, 0],
-            },
-            {
-                name: "France",
-                data: [3, 1.3, 1.5, 3.8]   
-            },
-            {
-                name: "Germany",
-                data: [0.4, 0.7, 1.1, 2.0]
-            },
-            {
-                name: "United Kingdom",
-                data: [2, 1.1, 1.7, 2.6]
-            },
-            {
-                name: "United States",
-                data: [1, 0.9, 1.0, 1.6]
-            }
-            ],
+            series: seriesData,
             grid: {
                 yaxis: {
                     lines: {
@@ -309,9 +321,8 @@
             barChartVcDealVolume(chartElement, datapoints, countries);
         })
         document.querySelectorAll('.historical-chart').forEach(chartElement => {
-            // const datapoints = JSON.parse(chartElement.dataset.datapoints)
-            // const countries = JSON.parse(chartElement.dataset.countries)
-            lineChartVcDealVolumeHistorical(chartElement);
+            const series = JSON.parse(chartElement.dataset.series)
+            lineChartVcDealVolumeHistorical(chartElement, series);
         })
     })
 </script>

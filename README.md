@@ -13,28 +13,28 @@ Things you may want to cover:
 
 *Features
 - **Landing page**
-<!-- -- Value prop -->
-<!-- -- Buttons to explore -->
-<!-- -- Login / signup -->
+<!-- -- ADDED TO USER STORIES Value prop -->
+<!-- -- DONE Buttons to explore -->
+<!-- -- DONE Login / signup -->
 -- Have a nice image
 - **Explore by country**
-<!-- -- Individual indicator datapoint, by country (current year) -->
-<!-- -- Difference from global leader, difference from regional leader -->
-<!-- -- Show by absolute, show by normalized -->
-<!-- -- Comments (with category and indicator tags) [tags are NOT MVP] -->
+<!-- -- ADDED TO USER STORIES Individual indicator datapoint, by country (current year) -->
+<!-- -- ADDED TO USER STORIES Difference from global leader, difference from regional leader -->
+<!-- -- ADDED TO USER STORIES Show by absolute, show by normalized -->
+<!-- -- ADDED TO USER STORIES Comments (with category and indicator tags) [tags are NOT MVP] -->
 - **Explore by category**
-<!-- -- Indicator charts, by category -->
-<!-- -- Show by absolute, show by normalized -->
-<!-- -- Comments (with indicator and country tags) [tags are NOT MVP] -->
-<!-- -- Add CAGR (% change) [NOT MVP] -->
-<!-- -- Suggest new indicators [NOT MVP] -->
-<!-- -- Vote on importance of indicators (or ask people to help weight them; upvote comments; upvote metrics) [NOT MVP] -->
+<!-- -- ADDED TO USER STORIES Indicator charts, by category -->
+<!-- -- ADDED TO USER STORIES Show by absolute, show by normalized -->
+<!-- -- NOT ADDED TO USER STORIES - SAME AS COMMENTS IN COUNTRY SECTION Comments (with indicator and country tags) [tags are NOT MVP] -->
+<!-- -- ADDED TO USER STORIES Add CAGR (% change) [NOT MVP] -->
+<!-- -- ADDED TO USER STORIES Suggest new indicators [NOT MVP] -->
+<!-- -- ADDED TO USER STORIES Vote on importance of indicators (or ask people to help weight them; upvote comments; upvote metrics) [NOT MVP] -->
 - **Information page**
--- Definitions of categories
--- Definitions of metrics
--- Methodology (how indicators are calculated)
--- Sources
--- Download the report
+-- ADDED TO USER STORIES Definitions of categories
+-- ADDED TO USER STORIES Definitions of metrics
+-- ADDED TO USER STORIES Methodology (how indicators are calculated)
+-- ADDED TO USER STORIES Sources
+-- ADDED TO USER STORIES Download the report
 - **User page**
 -- Username
 -- GitHub repo
@@ -46,18 +46,18 @@ Things you may want to cover:
 -- Votes
 <!-- - **Login** -->
 **Other to-dos**
--- Mobile optimize
+-- ADDED TO USER STORIES Mobile optimize
 **Other metrics**
--- Company culture + other ratings from GLASS DOOR
+-- ADDED TO USER STORIES  Company culture + other ratings from GLASS DOOR
 **Ideas**
--- Jobs tab
--- Average salary
--- NomadList tab
--- Figure out a score
--- Interactive 'decider' of where you should live based on XYZ criteria (http://worrydream.com/TenBrighterIdeas/)
--- Interactive meter of how you could improve XYZ output of your country if you do XYZ inputs (https://www.nytimes.com/interactive/2014/upshot/buy-rent-calculator.html)
--- Show trends over time with animated data viz (https://observablehq.com/@mbostock/the-wealth-health-of-nations)
--- Modal asking people what they would od in XYZ scenario - would you rather [X salary] [Y proximity to your home country]. How many years later would you come home?
+-- ADDED TO USER STORIES Jobs tab
+-- ADDED TO USER STORIES Average salary
+-- ADDED TO USER STORIES NomadList tab
+-- ADDED TO USER STORIES Figure out a score
+-- ADDED TO USER STORIES Interactive 'decider' of where you should live based on XYZ criteria (http://worrydream.com/TenBrighterIdeas/)
+-- ADDED TO USER STORIES Interactive meter of how you could improve XYZ output of your country if you do XYZ inputs (https://www.nytimes.com/interactive/2014/upshot/buy-rent-calculator.html)
+-- ADDED TO USER STORIES Show trends over time with animated data viz (https://observablehq.com/@mbostock/the-wealth-health-of-nations)
+-- ADDED TO USER STORIES Modal asking people what they would od in XYZ scenario - would you rather [X salary] [Y proximity to your home country]. How many years later would you come home?
 
 
 * Ruby version

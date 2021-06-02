@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         if @user
             if @user.authenticate(params[:password])
                 session[:user_id] = @user.id
-                redirect_to categories_path
+                redirect_to category_path(1)
             else
                 flash[:errors] = ["Incorrect password."]
                 redirect_to login_path

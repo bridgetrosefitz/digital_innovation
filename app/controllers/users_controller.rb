@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params) 
         if @user.valid?
             session[:user_id] = @user.id
-            redirect_to categories_path
+            redirect_to category_path(1)
         else
             flash[:errors] =  @user.errors.full_messages
             redirect_to signup_path

@@ -19,4 +19,16 @@ class Datapoint < ApplicationRecord
         end
     end
 
+    def value_gdp 
+        indicator_id = Indicator.find_by(name: "GDP").id
+        normalizer_value = Datapoint.find_by(indicator_id: indicator_id, country_id: self.country_id, year: self.year).value.to_f
+        normalized_value = self.value / normalizer_value
+    end
+
+    def value_population
+        indicator_id = Indicator.find_by(name: "Population").id
+        normalizer_value = Datapoint.find_by(indicator_id: indicator_id, country_id: self.country_id, year: self.year).value.to_f
+        normalized_value = self.value / normalizer_value
+    end
+
 end

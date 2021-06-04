@@ -1,0 +1,2 @@
+$("#category-partial-initial").html("")
+$("#category-partial").html("<%= escape_javascript(render partial: 'categories/show', locals: { category: @category, method_to_use: @method_to_use } ) %>");

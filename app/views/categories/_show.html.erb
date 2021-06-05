@@ -7,6 +7,7 @@
                   <div class="col-sm-6">
                       <!-- Create single year chart, in its dedicated section -->
                       <% year = indicator.datapoints.map(&:year).max %>
+                      <% unit = method_to_use == "value_to_scale" ? "#{indicator.unit} (#{indicator.scale})" : "Normalized" %>
                       <h5 class="text-muted font-weight-normal mt-2 mb-0" ><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= year %></span></h5>
                       <% array_of_datapoints_single_year = [] %>
                       <% indicator.datapoints.each do |datapoint| %>
@@ -15,7 +16,7 @@
                           <%end%>
                       <% end %>
                       <% array_of_countries = indicator.datapoints.map{ |d| d.country.name}.uniq %>
-                      <div class="apex-charts single-year-chart" id="single-year-chart" data-datapoints='<%= raw array_of_datapoints_single_year.to_json %>' data-countries='<%= raw array_of_countries.to_json %>' data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
+                      <div class="apex-charts single-year-chart" id="single-year-chart" data-unit="<%= unit.to_json%>" data-datapoints='<%= raw array_of_datapoints_single_year.to_json %>' data-countries='<%= raw array_of_countries.to_json %>' data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
                   </div>    
                   <div class="col-sm-6">
                       <!-- If multi-year data available, create historical chart, in its dedicated section -->
@@ -37,7 +38,7 @@
                               <% elsif datapoint.country.name == "United Kingdom" %>
                                   <% united_kingdom_data << datapoint.send(method_to_use) %>
                               <% elsif datapoint.country.name == "United States" %>
-                                  <% united_states_data << datapoint.send(method_to_use) %>
+                                  <% united_states_data << datapoint.send(method_to_use) %>                                  
                               <% elsif datapoint.country.name == "China" %>
                                   <% china_data << datapoint.send(method_to_use) %>
                               <% end %>
@@ -90,7 +91,8 @@
     document.querySelectorAll('.single-year-chart').forEach(chartElement => {
         const datapoints = JSON.parse(chartElement.dataset.datapoints)
         const countries = JSON.parse(chartElement.dataset.countries)
-        barChartSingleYear(chartElement, datapoints, countries);
+        const dataUnit = JSON.parse(chartElement.dataset.unit)
+        barChartSingleYear(chartElement, datapoints, countries, dataUnit);
     })
     document.querySelectorAll('.historical-chart').forEach(chartElement => {
         const series = JSON.parse(chartElement.dataset.series)

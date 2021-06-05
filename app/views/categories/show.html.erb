@@ -22,7 +22,7 @@
                                                     id="absolute-button" 
                                                     class="btn btn-dark" 
                                                     onclick="toggleButtonColor('#absolute-button')">
-                                                    <%= link_to 'Absolute', category_path(:method_to_use => "value"), :style => 'color:#FFFFFF;', remote: true %> 
+                                                    <%= link_to 'Absolute', category_path(:method_to_use => "value_to_scale"), :style => 'color:#FFFFFF;', remote: true %> 
                                                 </button>
                                                 <button 
                                                     type="button" 
@@ -131,7 +131,7 @@
 
     }
 
-    var barChartSingleYear = (chartContainer, datapoints, countries) => {
+    var barChartSingleYear = (chartContainer, datapoints, countries, dataUnit) => {
         var colors = ["#39afd1"];
         var dataColors = $(chartContainer).data('colors');
         if (dataColors) {
@@ -152,12 +152,24 @@
                     distributed: true
                 }
             },
+            tooltip: {
+                enabled: true,
+                y: {
+                    formatter: undefined,
+                    title: {
+                        formatter: (seriesName) => seriesName,
+                        // This uses the name specified in series[:name] - it's in tooltip by default but this code makes it explicit
+                        formatter: function(data, seriesName) {
+                            return seriesName, data}
+                    },
+                },
+            },
             dataLabels: {
-                enabled: false
+                enabled: false,
             },
             series: [{
-                name: "USD",
-                data: datapoints
+                name: dataUnit,
+                data: datapoints.map(datapoint => Math.round(datapoint))
             }],
             colors: colors,
             yaxis: {

@@ -7,7 +7,7 @@
                   <div class="col-sm-6">
                       <!-- Create single year chart, in its dedicated section -->
                       <% year = indicator.datapoints.map(&:year).max %>
-                      <% unit = method_to_use == "value_to_scale" ? "#{indicator.unit} (#{indicator.scale})" : "Normalized" %>
+                      <% unit = method_to_use == "value_to_scale" ? (indicator.scale == "default" ? "#{indicator.unit}" : "#{indicator.unit} (#{indicator.scale})" ) : "Normalized" %>
                       <h5 class="text-muted font-weight-normal mt-2 mb-0" ><%= indicator.name %> <span class="badge badge-primary-lighten badge-pill"><%= year %></span></h5>
                       <% array_of_datapoints_single_year = [] %>
                       <% indicator.datapoints.each do |datapoint| %>

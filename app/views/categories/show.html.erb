@@ -167,7 +167,10 @@
                               return "Normalized"
                           }
                           else {
-                              return w.config.series[seriesIndex].name + ":  " + (Math.round((value + Number.EPSILON) * 100) / 100).toFixed(2)
+                              const number_formatting = new Intl.NumberFormat('en-US', {
+                                minimumFractionDigits: 1,
+                                });
+                              return w.config.series[seriesIndex].name + ":  " + number_formatting.format((Math.round((value + Number.EPSILON) * 100) / 100).toFixed(1))
                           }
                      },
                     title: {
@@ -268,9 +271,11 @@
                               return `${w.config.series[seriesIndex].name} (normalized)`
                           }
                           else {
-                         return `${w.config.series[seriesIndex].name}, ${dataUnit}: ${(Math.round((value + Number.EPSILON) * 100) / 100).toFixed(2)}`
-                          }
-                     },
+                            const number_formatting = new Intl.NumberFormat('en-US', {
+                                                        minimumFractionDigits: 1,
+                                                      });
+                            return w.config.series[seriesIndex].name + ":  " + number_formatting.format((Math.round((value + Number.EPSILON) * 100) / 100).toFixed(1))
+                          }},
                     title: {
                         formatter: (seriesName) => {
                             return null}

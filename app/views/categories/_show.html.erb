@@ -51,7 +51,7 @@
                               {name: "United States", data: united_states_data },
                               {name: "China", data: china_data}
                           ] %>
-                          <div class="apex-charts historical-chart" id="historical-chart" data-dates="<%= dates.to_json %>" data-series="<%= series.to_json  %>" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
+                          <div class="apex-charts historical-chart" id="historical-chart" data-unit="<%= unit.to_json%>" data-dates="<%= dates.to_json %>" data-series="<%= series.to_json  %>" data-colors="#fa6767,#44badc,#3688fc,#f9bc0d,#6b5eae,#44badc"></div>
                       <% else %>
                               <div class="d-flex flex-row">
                                   <div class="p-2"></div>
@@ -97,7 +97,8 @@
     document.querySelectorAll('.historical-chart').forEach(chartElement => {
         const series = JSON.parse(chartElement.dataset.series)
         const dates = JSON.parse(chartElement.dataset.dates)
-        lineChartHistorical(chartElement, series, dates);
+        const dataUnit = JSON.parse(chartElement.dataset.unit)
+        lineChartHistorical(chartElement, series, dates, dataUnit);
     })
 
 </script>

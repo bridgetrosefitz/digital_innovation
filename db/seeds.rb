@@ -345,7 +345,6 @@
 # Datapoint.create(indicator_id: 14, country_id: 4, value: 326687501, year: "2018")
 # Datapoint.create(indicator_id: 14, country_id: 5, value: 1392730000, year: "2018")
 
-# NEED TO UPDATE THIS COLUMN WITH NEW NUMBERS
 # Datapoint.create(indicator_id: 14, country_id: 1, value: 66977107, year: "2019")
 # Datapoint.create(indicator_id: 14, country_id: 2, value: 82905782, year: "2019")
 # Datapoint.create(indicator_id: 14, country_id: 3, value: 66460344, year: "2019")

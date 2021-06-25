@@ -138,7 +138,8 @@
             colors = dataColors.split(",");
         }
         var options = {
-                                
+            // I figured out how to format the tooltip, customizing how seriesName is represented, at this link: https://apexcharts.com/docs/options/datalabels/
+            // I also had to explicitly remove title, to not get it showing up twice, as per here: https://apexcharts.com/docs/options/tooltip/
             chart: {
                 height: 300,
                 type: 'bar',
@@ -152,30 +153,34 @@
                     distributed: true
                 }
             },
-            tooltip: {
-                enabled: true,
-                y: {
-                    formatter: undefined,
-                    title: {
-                        formatter: (seriesName) => seriesName,
-                        // This uses the name specified in series[:name] - it's in tooltip by default but this code makes it explicit
-                        formatter: function(data, seriesName) {
-                            return seriesName, data}
-                    },
-                },
-            },
             dataLabels: {
                 enabled: false,
             },
             series: [{
                 name: dataUnit,
-                data: datapoints.map(datapoint => Math.round(datapoint))
+                data: datapoints,
             }],
+            tooltip: {
+                y: {
+                      formatter: function(value, { seriesIndex, dataPointIndex, w }) {
+                          if(dataUnit === "Normalized") {
+                              return "Normalized"
+                          }
+                          else {
+                              return w.config.series[seriesIndex].name + ":  " + (Math.round((value + Number.EPSILON) * 100) / 100).toFixed(2)
+                          }
+                     },
+                    title: {
+                        formatter: (seriesName) => {
+                            return null}
+                    }
+                },
+            },
             colors: colors,
             yaxis: {
                 axisBorder: {
                     show: true
-                }
+                },
             },
             xaxis: {
                 axisBorder: {
@@ -204,7 +209,6 @@
             },
             legend: {
                 show: false,
-                shape: "circle",
             }
         }
 
@@ -217,7 +221,7 @@
     
     }
 
-    var lineChartHistorical = (chartContainer, seriesData, dates) => {
+    var lineChartHistorical = (chartContainer, seriesData, dates, dataUnit) => {
         var colors = ["#ffbc00"];
         var dataColors = $(chartContainer).data('colors');
         if (dataColors) {
@@ -257,6 +261,22 @@
                 
             },
             series: seriesData,
+            tooltip: {
+                y: {
+                      formatter: function(value, { seriesIndex, dataPointIndex, w }) {
+                          if(dataUnit === "Normalized") {
+                              return `${w.config.series[seriesIndex].name} (normalized)`
+                          }
+                          else {
+                         return `${w.config.series[seriesIndex].name}, ${dataUnit}: ${(Math.round((value + Number.EPSILON) * 100) / 100).toFixed(2)}`
+                          }
+                     },
+                    title: {
+                        formatter: (seriesName) => {
+                            return null}
+                    }
+                },
+            },
             grid: {
                 yaxis: {
                     lines: {
@@ -288,7 +308,6 @@
             },
             legend: {
                 show: false,
-                showForNullSeries: false,
             }
         }
 

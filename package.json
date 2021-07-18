@@ -33,7 +33,7 @@
     "fullcalendar": "^5.3.0",
     "gmaps": "^0.4.25",
     "handlebars": "^4.7.6",
-    "highcharts": "^8.1.2",
+    "highcharts": "^9.0.0",
     "highlightjs": "^9.16.2",
     "ion-rangeslider": "^2.3.1",
     "jquery": "3.5.1",

@@ -1,79 +1,43 @@
-# README 📖
+# Digital Innovation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+'·..·''·..·''·..·' View it at [http://digital-innovation-stats.herokuapp.com/](http://digital-innovation-stats.herokuapp.com/) '·..·''·..·''·..·'
 
-Things you may want to cover:
+<p float="left">
+  <img alt='landing-page' src='public/project-snapshots/digital-innovation/digital-innovation-1-landing-page.png' width='400' />
+  <img alt="signup" src="public/project-snapshots/digital-innovation/digital-innovation-2-signup.png" width='400'/>
+  <img alt='capital' src="https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-5-capital.png" width='400' />
+  <img alt="activity" src="https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-7-activity.png" width='400'/>
+</p>
 
-*The purpose of this app is to 
-- Help developers understand the tech sector in France vs other countries, in a comprehensive and non-biased way, to decide where they would like to go and work
-- The app focuses on highlighting features of the tech sector which make the sector innovative
-- The app takes as a starting point the idea that talent - developers - are the lifeblood of an innovative tech sector
-- Innovation means: the creation of new products, processes and ideas. By extensive, innovative means that a large volume of innovation is occuring
+## Why I made it
 
-*Features
-- **Landing page**
-<!-- -- ADDED TO USER STORIES Value prop -->
-<!-- -- DONE Buttons to explore -->
-<!-- -- DONE Login / signup -->
--- Have a nice image
-- **Explore by country**
-<!-- -- ADDED TO USER STORIES Individual indicator datapoint, by country (current year) -->
-<!-- -- ADDED TO USER STORIES Difference from global leader, difference from regional leader -->
-<!-- -- ADDED TO USER STORIES Show by absolute, show by normalized -->
-<!-- -- ADDED TO USER STORIES Comments (with category and indicator tags) [tags are NOT MVP] -->
-- **Explore by category**
-<!-- -- ADDED TO USER STORIES Indicator charts, by category -->
-<!-- -- ADDED TO USER STORIES Show by absolute, show by normalized -->
-<!-- -- NOT ADDED TO USER STORIES - SAME AS COMMENTS IN COUNTRY SECTION Comments (with indicator and country tags) [tags are NOT MVP] -->
-<!-- -- ADDED TO USER STORIES Add CAGR (% change) [NOT MVP] -->
-<!-- -- ADDED TO USER STORIES Suggest new indicators [NOT MVP] -->
-<!-- -- ADDED TO USER STORIES Vote on importance of indicators (or ask people to help weight them; upvote comments; upvote metrics) [NOT MVP] -->
-- **Information page**
--- ADDED TO USER STORIES Definitions of categories
--- ADDED TO USER STORIES Definitions of metrics
--- ADDED TO USER STORIES Methodology (how indicators are calculated)
--- ADDED TO USER STORIES Sources
--- ADDED TO USER STORIES Download the report
-- **User page**
--- Username
--- GitHub repo
--- Current country
--- Countries lived in
--- Favorited countries
--- Comments
--- Indicator suggestions
--- Votes
-<!-- - **Login** -->
-**Other to-dos**
--- ADDED TO USER STORIES Mobile optimize
-**Other metrics**
--- ADDED TO USER STORIES  Company culture + other ratings from GLASS DOOR
-**Ideas**
--- ADDED TO USER STORIES Jobs tab
--- ADDED TO USER STORIES Average salary
--- ADDED TO USER STORIES NomadList tab
--- ADDED TO USER STORIES Figure out a score
--- ADDED TO USER STORIES Interactive 'decider' of where you should live based on XYZ criteria (http://worrydream.com/TenBrighterIdeas/)
--- ADDED TO USER STORIES Interactive meter of how you could improve XYZ output of your country if you do XYZ inputs (https://www.nytimes.com/interactive/2014/upshot/buy-rent-calculator.html)
--- ADDED TO USER STORIES Show trends over time with animated data viz (https://observablehq.com/@mbostock/the-wealth-health-of-nations)
--- ADDED TO USER STORIES Modal asking people what they would od in XYZ scenario - would you rather [X salary] [Y proximity to your home country]. How many years later would you come home?
+This app is a platform to compare digital innovation in different countries. It provides initial thinking and dynamic metrics about factors which lead to innovative digital products being created in a country, such as the amount of activity on GitHub, and the availability of capital.
+
+In future, the site could crowdsource ideas and data about what makes a ripe environment for digital innovation (indicators about mindset, access to tech education, the price of a computer, who knows!), with the goal of helping people in tech connect and travel to places where they can contribute to innovative projects.
+
+This project was inspired by a research paper completed during my Masters.
+
+## How it's made
+
+### Technology
+
+| Front end  | Back end |
+| ------------- | ------------- |
+| [Rails](https://rubyonrails.org/)  | [Rails](https://rubyonrails.org/) |
+| [Bootstrap](https://getbootstrap.com/)  | [PostgreSQL](https://www.postgresql.org/) |
+| [Apex charts](https://apexcharts.com/)| [webpack](https://webpack.js.org/) |
+  
+### ERD
+
+XXX
+
+### User Stories
+
+I kept myself organized with user stories, available [here](https://bridgetrosefitz.notion.site/Bridget-Fitzgerald-Digital-Innovation-0c0a03caf93f4643bfa85f634bd0d8ae).
 
 
-* Ruby version
+## What's next
 
-* System dependencies
+The app is currently an MVP with full CRUD of projects and tasks, and the ability to flag tasks. From here, I'd like to make it more user-ready. Major next-up priorities (as of 07/27/21) are:
+* Implement the other ideas under the "Nice to have" category in my [user stories](https://bridgetrosefitz.notion.site/Bridget-Fitzgerald-Digital-Innovation-0c0a03caf93f4643bfa85f634bd0d8ae)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

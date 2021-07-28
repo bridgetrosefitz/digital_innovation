@@ -38,6 +38,6 @@ I kept myself organized with user stories, available [here](https://bridgetrosef
 
 ## What's next
 
-The app is currently an MVP with full CRUD of projects and tasks, and the ability to flag tasks. From here, I'd like to make it more user-ready. Major next-up priorities (as of 07/27/21) are:
+Major next-up priorities (as of 07/27/21) are:
 * Implement the other ideas under the "Nice to have" category in my [user stories](https://bridgetrosefitz.notion.site/Bridget-Fitzgerald-Digital-Innovation-0c0a03caf93f4643bfa85f634bd0d8ae)
 

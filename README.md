@@ -2,7 +2,7 @@
 
 '·..·''·..·''·..·' View it at [http://digital-innovation-stats.herokuapp.com/](http://digital-innovation-stats.herokuapp.com/) '·..·''·..·''·..·'
 
-<p float="left">
+<p float="right">
   <img alt='landing-page' src='https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-1-landing-page.png' width='400' />
   <img alt="signup" src="https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-2-signup.png" width='400'/>
   <img alt='capital' src="https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-5-capital.png" width='400' />

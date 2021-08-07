@@ -1,6 +1,6 @@
 # Digital Innovation
 
-'·..·''·..·''·..·' View it at [http://digital-innovation-stats.herokuapp.com/](http://digital-innovation-stats.herokuapp.com/) '·..·''·..·''·..·'
+'·..·''·..·''·..·' View it at [https://digitalinnovation.fyi/](https://digitalinnovation.fyi/) '·..·''·..·''·..·'
 
 <p float="right">
   <img alt='landing-page' src='https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-1-landing-page.png' width='400' />
@@ -27,10 +27,6 @@ This project was inspired by a research paper completed during my Masters.
 | [Bootstrap](https://getbootstrap.com/)  | [PostgreSQL](https://www.postgresql.org/) |
 | [Apex charts](https://apexcharts.com/)| [webpack](https://webpack.js.org/) |
   
-### ERD
-
-XXX
-
 ### User Stories
 
 I kept myself organized with user stories, available [here](https://bridgetrosefitz.notion.site/Bridget-Fitzgerald-Digital-Innovation-0c0a03caf93f4643bfa85f634bd0d8ae).

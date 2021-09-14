@@ -1,6 +1,6 @@
 # Digital Innovation
 
-'·..·''·..·''·..·' View it at [https://digitalinnovation.fyi/](https://digitalinnovation.fyi/) '·..·''·..·''·..·'
+'·..·''·..·''·..·' View it at [http://digitalinnovation.fyi/](http://digitalinnovation.fyi/) '·..·''·..·''·..·'
 
 <p float="right">
   <img alt='landing-page' src='https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-1-landing-page.png' width='400' />

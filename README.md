@@ -37,6 +37,6 @@ Visualization of the models and join tables in this app is [here](https://drive.
 
 ## What's next
 
-Major next-up priorities (as of 07/27/21) are:
+Major next-up priorities are:
 * Implement the other ideas under the "Nice to have" category in my [user stories](https://bridgetrosefitz.notion.site/Bridget-Fitzgerald-Digital-Innovation-0c0a03caf93f4643bfa85f634bd0d8ae)
 

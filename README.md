@@ -1,6 +1,6 @@
 # Digital Innovation
 
-'·..·''·..·''·..·' View it at [https://digitalinnovation.fyi/](https://digitalinnovation.fyi/) '·..·''·..·''·..·'
+'·..·''·..·''·..·' View it at [http://digitalinnovation.fyi/](http://digitalinnovation.fyi/) '·..·''·..·''·..·'
 
 <p float="right">
   <img alt='landing-page' src='https://bridgetro.se/images/project-snapshots/digital-innovation/digital-innovation-1-landing-page.png' width='400' />
@@ -31,9 +31,12 @@ This project was inspired by a research paper completed during my Masters.
 
 I kept myself organized with user stories, available [here](https://bridgetrosefitz.notion.site/Bridget-Fitzgerald-Digital-Innovation-0c0a03caf93f4643bfa85f634bd0d8ae).
 
+### ERD for the back-end
+Visualization of the models and join tables in this app is [here](https://drive.google.com/file/d/1fqB9-6P3mlApxOALKzsiuhRvq5rVV9i-/view?usp=sharing).
+
 
 ## What's next
 
-Major next-up priorities (as of 07/27/21) are:
+Major next-up priorities are:
 * Implement the other ideas under the "Nice to have" category in my [user stories](https://bridgetrosefitz.notion.site/Bridget-Fitzgerald-Digital-Innovation-0c0a03caf93f4643bfa85f634bd0d8ae)
 

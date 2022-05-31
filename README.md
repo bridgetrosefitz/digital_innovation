@@ -3,10 +3,10 @@
 '·..·''·..·''·..·' View it at [https://digitalinnovation.fyi/](https://digitalinnovation.fyi/) '·..·''·..·''·..·'
 
 <p float="right">
-  <img alt='landing-page' src='https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-1-landing-page.png' width='400' />
-  <img alt="signup" src="https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-2-signup.png" width='400'/>
-  <img alt='capital' src="https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-5-capital.png" width='400' />
-  <img alt="activity" src="https://bridgetro.se/project-snapshots/digital-innovation/digital-innovation-7-activity.png" width='400'/>
+  <img alt='landing-page' src='https://bridgetro.se/images/project-snapshots/digital-innovation/digital-innovation-1-landing-page.png' width='400' />
+  <img alt="signup" src="https://bridgetro.se/images/project-snapshots/digital-innovation/digital-innovation-2-signup.png" width='400'/>
+  <img alt='capital' src="https://bridgetro.se/images/project-snapshots/digital-innovation/digital-innovation-5-capital.png" width='400' />
+  <img alt="activity" src="https://bridgetro.se/images/project-snapshots/digital-innovation/digital-innovation-7-activity.png" width='400'/>
 </p>
 
 ## Why I made it
